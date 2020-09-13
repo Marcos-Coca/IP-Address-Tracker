@@ -6,6 +6,7 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
+		"test": "jest",
 		"lint": "eslint . --fix"
 	},
 	"dependencies": {
@@ -16,6 +17,8 @@
 		"react-map-gl": "^5.2.8"
 	},
 	"devDependencies": {
+		"@babel/plugin-transform-modules-commonjs": "^7.10.4",
+		"@testing-library/react-hooks": "^3.4.1",
 		"enzyme": "^3.11.0",
 		"eslint": "^7.9.0",
 		"eslint-config-standard": "^14.1.1",
@@ -24,6 +27,13 @@
 		"eslint-plugin-promise": "^4.2.1",
 		"eslint-plugin-react": "^7.20.6",
 		"eslint-plugin-standard": "^4.0.1",
-		"jest": "^26.4.2"
+		"jest": "^26.4.2",
+		"jest-fetch-mock": "^3.0.3",
+		"react-test-renderer": "^16.13.1"
+	},
+	"jest": {
+		"setupFilesAfterEnv": [
+			"<rootDir>/__test__/setupJest.js"
+		]
 	}
 }
