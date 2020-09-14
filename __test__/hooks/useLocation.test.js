@@ -2,10 +2,11 @@
 import useLocation from '../../hooks/useLocation'
 import { renderHook } from '@testing-library/react-hooks'
 
+import validateIP from '../../utils/validateIP'
 import mockLocation from '../../mocks/location'
 
 describe('Testing Hooks get Location', () => {
-  it('Testing of retreving a valid IP', async () => {
+  it('Testing of retreving a valid response', async () => {
     fetch.mockResponseOnce(JSON.stringify(mockLocation))
     const { result, waitForValueToChange } = renderHook(() => useLocation({}))
 
@@ -13,8 +14,7 @@ describe('Testing Hooks get Location', () => {
 
     expect(result.current.loading).toBeFalsy()
     expect(result.current.error).toBeNull()
-    expect(result.current.location.ip).toMatch(new RegExp('^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9])(.(?!$)|$)){4}$'
-    ))
+    expect(validateIP(result.current.location.ip)).toBeTruthy()
   })
 
   it('Testing Invalid IP', () => {

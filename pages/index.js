@@ -1,4 +1,5 @@
+import IpTracker from '../components/IpTracker'
 
 export default function Home () {
-  return <div>Home </div>
+  return <IpTracker/>
 }

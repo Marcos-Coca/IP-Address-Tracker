@@ -1,3 +1,4 @@
+import validateIP from '../utils/validateIP'
 import { useState, useEffect } from 'react'
 
 export default function useLocation ({ ip = 'check' }) {
@@ -5,13 +6,8 @@ export default function useLocation ({ ip = 'check' }) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  function validateIp () {
-    const regex = new RegExp('^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9])(.(?!$)|$)){4}$')
-    return regex.test(ip) || ip === 'check'
-  }
-
   useEffect(() => {
-    const isValidIp = validateIp()
+    const isValidIp = validateIP(ip) || ip === 'check'
     const controller = new AbortController()
     const { signal } = controller
 
@@ -21,7 +17,7 @@ export default function useLocation ({ ip = 'check' }) {
         .then(res => res.json())
         .then(setLocation)
         .then(() => setLoading(false))
-        .catch(() => { setError(true); setLocation(null) })
+        .catch(() => { setError(true); setLocation(null); setLoading(false) })
     } else {
       setError(true)
       setLocation(null)
