@@ -1,23 +1,8 @@
 {
-	"presets": [
-		[
-			"next/babel",
-			{
-				"preset-env": {},
-				"transform-runtime": {},
-				"styled-jsx": {},
-				"class-properties": {}
-			}
-		]
-	],
-	"plugins": ["@babel/plugin-transform-modules-commonjs"]
+	"env": {
+		"test": {
+			"presets": ["@babel/preset-react"],
+			"plugins": ["@babel/plugin-transform-modules-commonjs"]
+		}
+	}
 }
-
-// {
-// 	"env": {
-// 		"test": {
-//
-// 			"presets": ["next/babel"]
-// 		}
-// 	}
-// }
