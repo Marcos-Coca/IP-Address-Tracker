@@ -29,7 +29,6 @@ describe('Testing IpInfo component', () => {
       />
     )
 
-    console.log(ipInfo.debug())
     expect(ipInfo.containsAllMatchingElements([
       <div>{mockLocation.ip}</div>,
       <img src={mockLocation.location.country_flag} alt={mockLocation.country_code} />,

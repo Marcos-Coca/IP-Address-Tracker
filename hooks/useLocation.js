@@ -1,5 +1,7 @@
-import validateIP from '../utils/validateIP'
 import { useState, useEffect } from 'react'
+
+import validateIP from '../utils/validateIP'
+import getLocation from '../Services/getLocation'
 
 export default function useLocation ({ ip = 'check' }) {
   const [location, setLocation] = useState({})
@@ -13,8 +15,7 @@ export default function useLocation ({ ip = 'check' }) {
 
     if (isValidIp) {
       setLoading(true)
-      fetch(`http://api.ipstack.com/${ip}?access_key=298de709041c0beb80351ad007fad2ee`, { signal })
-        .then(res => res.json())
+      getLocation({ signal, ip })
         .then(setLocation)
         .then(() => setLoading(false))
         .catch(() => { setError(true); setLocation(null); setLoading(false) })

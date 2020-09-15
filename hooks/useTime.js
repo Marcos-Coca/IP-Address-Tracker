@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+
+import getTime from '../Services/getTime'
 import validateIP from '../utils/validateIP'
 
 export default function useTime ({ ip = '' }) {
@@ -13,8 +15,7 @@ export default function useTime ({ ip = '' }) {
 
     if (isValidIp) {
       setLoading(true)
-      fetch(`http://worldtimeapi.org/api/ip/${ip}`, { signal })
-        .then(res => res.json())
+      getTime({ signal, ip })
         .then(setTime)
         .then(() => setLoading(false))
         .catch(() => { setError(true); setTime(null); setLoading(false) })
