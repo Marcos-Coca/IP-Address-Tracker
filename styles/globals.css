@@ -5,9 +5,12 @@ body {
   margin: 0;
   font-size:18px;
   background: gray;
-  font-family: 'Rubik', BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    font-family: 'Rubik', sans-serif;
+
+}
+
+*{
+  font-family: 'Rubik', sans-serif;
+
 }
 
 a {

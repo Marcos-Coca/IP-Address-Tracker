@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
-export default function IpForm ({ setState }) {
-  const [text, setText] = useState('')
+import { useRouter } from 'next/router'
+
+import styles from './styles'
+import validateIP from '../../utils/validateIP'
+
+export default function IpForm ({ ip }) {
+  const [text, setText] = useState(ip)
+  const router = useRouter()
 
   const handleChange = (e) => {
     const value = e.target.value
@@ -9,13 +15,14 @@ export default function IpForm ({ setState }) {
 
   const handleSubmit = (e) => {
     e?.preventDefault()
-    setState(text)
+    router.push('/ip/[ip]', `/ip/${text}`)
   }
 
   return <div>
     <form onSubmit={handleSubmit}>
-      <input type="text" onChange={handleChange} value={text}/>
-      <button></button>
+      <input type="text" placeholder="Search for any IP address" onChange={handleChange} value={text}/>
+      <button disabled={!validateIP(text)}></button>
     </form>
+    <style jsx>{styles}</style>
   </div>
 }
