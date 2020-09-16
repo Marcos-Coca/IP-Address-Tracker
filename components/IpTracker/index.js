@@ -1,4 +1,4 @@
-import Link from 'next/Link'
+import Link from 'next/link'
 
 import Map from '../Map'
 import IpInfo from '../IpInfo'
@@ -15,7 +15,7 @@ export default function IpTracker ({ location, time }) {
       <IpForm ip={location.ip} />
       <IpInfo ip={location.ip}
         contryCode={location.country_code}
-        countryFlag={location.location.country_flag}
+        countryFlag={location.location?.country_flag}
         regionName={location.region_name}
         zip={location.zip}
         timeZone={time.utc_offset}
