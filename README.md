@@ -1,30 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# IP ADDRESS TRACKER
 
-## Getting Started
+Aplicacion track a ip address
 
-First, run the development server:
+**App Screenshot**
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+![App Mobile Version](./readme-statics/ipAddressTrackerMobile.jpg)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+![App Desktop Version](./readme-statics/ipAddressTracker.PNG)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+[See App](https://mlb-stats-app.marcos-coca.vercel.app)
 
-## Deploy on Vercel
+# ¿How Works?
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Require Node.JS 10+
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `npm install` for install al dependencies.
+
+- `npm run dev` for development environment.
+
+- `npm run build && npm start` for production environment.
